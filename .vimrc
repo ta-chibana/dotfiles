@@ -52,11 +52,6 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-surround'
 
-" コード補完
-" NeoBundle 'Shougo/neocomplete.vim'
-" NeoBundle 'marcus/rsense'
-" NeoBundle 'supermomonga/neocomplete-rsense.vim'
-
 " ドキュメント参照
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'yuku-t/vim-ref-ri'
@@ -80,19 +75,3 @@ filetype plugin indent on
 " 未インストールプラグインチェック
 NeoBundleCheck
 
-"---------------------------
-" Rsense
-"---------------------------
-" let g:rsenseHome = '/usr/local/lib/rsense-0.3'
-" let g:rsenseUseOmniFunc = 1
-
-"---------------------------
-" neocomplete.vim
-"---------------------------
-" let g:acp_enableAtStartup = 0
-" let g:neocomplete#enable_at_startup = 1
-" let g:neocomplete#enable_smart_case = 1
-" if !exists('g:neocomplete#force_omni_input_patterns')
-"   let g:neocomplete#force_omni_input_patterns = {}
-" endif
-" let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
