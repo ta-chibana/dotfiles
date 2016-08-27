@@ -3,12 +3,12 @@
 "---------------------------
 set nocompatible
 set encoding=utf-8              " Vimの内部文字コードをutf-8に設定
-set number				        	    " 行番号表示	
+set number                      " 行番号表示
 set ruler                       " カーソル位置表示
-set tabstop=2			        	    " タブ文字の幅
-set shiftwidth=2	        	    " 自動インデント幅
-set autoindent		        	    " 改行時インデント継続
-set expandtab			         	    " タブ文字をスペースに
+set tabstop=2                   " タブ文字の幅
+set shiftwidth=2                " 自動インデント幅
+set autoindent                  " 改行時インデント継続
+set expandtab                   " タブ文字をスペースに
 set backspace=start,eol,indent  " BSキー設定
 set hlsearch                    " 検索文字のハイライト
 set incsearch                   " インクリメンタルサーチ
@@ -32,21 +32,28 @@ let g:user_emmet_leader_key='<c-e>'
 let g:surround_{char2nr('-')} = "<% \r %>"
 let g:surround_{char2nr('=')} = "<%= \r %>"
 let g:user_emmet_settings = {
-		\			'variables': {
-		\					'lang': "ja"
-		\			}
-		\	}
+    \   'variables': {
+    \     'lang': "ja"
+    \   }
+    \ }
+
+"---------------------------
+" NERDTree
+"---------------------------
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "---------------------------
 " NeoBundle
 "---------------------------
 set runtimepath+=~/.vim/bundle/neobundle.vim/
- 
+
 call neobundle#begin(expand('~/.vim/bundle/'))
-  
+
+
 " neobundle自体をneobundleで管理
 NeoBundleFetch 'Shougo/neobundle.vim'
-   
+
 NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'tpope/vim-rails'
@@ -68,10 +75,12 @@ NeoBundle 'slim-template/vim-slim'
 " CoffeeScript syntax highlight
 NeoBundle 'kchmck/vim-coffee-script'
 
+NeoBundle 'scrooloose/nerdtree'
+
 call neobundle#end()
-     
+
 filetype plugin indent on
-      
+
 " 未インストールプラグインチェック
 NeoBundleCheck
 
