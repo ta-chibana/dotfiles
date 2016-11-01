@@ -6,7 +6,8 @@ set encoding=utf-8                  " Vimの内部文字コードをutf-8に設�
 set fileencodings=utf-8,sjis,euc-jp " 読み込み時の文字コード設定
 set number                          " 行番号表示
 set ruler                           " カーソル位置表示
-set tabstop=2                       " タブ文字の幅
+set tabstop=4                       " ハードタブの幅
+set softtabstop=2                   " ソフトタブの幅
 set shiftwidth=2                    " 自動インデント幅
 set autoindent                      " 改行時インデント継続
 set expandtab                       " タブ文字をスペースに
@@ -17,7 +18,6 @@ set visualbell                      " ビープ音消去
 set ignorecase                      " 大文字小文字の区別を無視
 set smartcase                       " ignorecaseを大文字の有無で自動適用
 set wildmenu wildmode=list:full     " ファイルをリスト表示
-syntax on                           " シンタックスハイライトon
 
 " 補完の色
 hi Pmenu ctermbg = cyan
@@ -59,45 +59,33 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "---------------------------
-" NeoBundle
+" Dein.vim
 "---------------------------
-set runtimepath+=~/.vim/bundle/neobundle.vim/
 
-call neobundle#begin(expand('~/.vim/bundle/'))
+set runtimepath+=~/.vim/dein.vim
 
+call dein#begin(expand('~/.vim/dein/'))
 
-" neobundle自体をneobundleで管理
-NeoBundleFetch 'Shougo/neobundle.vim'
+call dein#add('tpope/vim-rails')
+call dein#add('tpope/vim-surround')
+call dein#add('mattn/emmet-vim')
 
-" 補完後のescでinsertに戻る挙動がある
-" NeoBundle 'Townk/vim-autoclose'
-
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-surround'
-
-" ドキュメント参照
-" NeoBundle 'thinca/vim-ref'
-" NeoBundle 'yuku-t/vim-ref-ri'
-
-" メソッド定義元へのジャンプ
-" NeoBundle 'szw/vim-tags'
-
-" 自動で閉じる
-NeoBundle 'tpope/vim-endwise'
+" end 補完
+call dein#add('tpope/vim-endwise')
 
 " Slim syntax highlight
-NeoBundle 'slim-template/vim-slim'
+call dein#add('slim-template/vim-slim')
 
 " CoffeeScript syntax highlight
-NeoBundle 'kchmck/vim-coffee-script'
+call dein#add('kchmck/vim-coffee-script')
 
-NeoBundle 'scrooloose/nerdtree'
+call dein#add('scrooloose/nerdtree')
 
-call neobundle#end()
+call dein#end()
 
-filetype plugin indent on
+if dein#check_install()
+  call dein#install()
+endif
 
-" 未インストールプラグインチェック
-NeoBundleCheck
+syntax on " シンタックスハイライトon
 
