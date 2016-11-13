@@ -81,6 +81,8 @@ call dein#add('kchmck/vim-coffee-script')
 
 call dein#add('scrooloose/nerdtree')
 
+call dein#add('pangloss/vim-javascript')
+
 call dein#end()
 
 if dein#check_install()
