@@ -18,6 +18,7 @@ set visualbell                      " ビープ音消去
 set ignorecase                      " 大文字小文字の区別を無視
 set smartcase                       " ignorecaseを大文字の有無で自動適用
 set wildmenu wildmode=list:full     " ファイルをリスト表示
+set noswapfile                      " swapファイルを作成しない
 
 " 補完の色
 hi Pmenu ctermbg = cyan
@@ -45,7 +46,7 @@ inoremap ' ''<ESC>i
 "---------------------------
 let g:user_emmet_leader_key='<c-e>'
 let g:surround_{char2nr('-')} = "<% \r %>"
-let g:surround_{char2nr('=')} = "<%= \r %>"""'')}
+let g:surround_{char2nr('=')} = "<%= \r %>"
 let g:user_emmet_settings = {
     \   'variables': {
     \     'lang': "ja"
