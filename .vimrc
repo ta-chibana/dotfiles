@@ -6,7 +6,7 @@ set encoding=utf-8                  " Vimの内部文字コードをutf-8に設�
 set fileencodings=utf-8,sjis,euc-jp " 読み込み時の文字コード設定
 set number                          " 行番号表示
 set ruler                           " カーソル位置表示
-set tabstop=4                       " ハードタブの幅
+set tabstop=2                       " ハードタブの幅
 set softtabstop=2                   " ソフトタブの幅
 set shiftwidth=2                    " 自動インデント幅
 set autoindent                      " 改行時インデント継続
@@ -92,3 +92,4 @@ endif
 
 syntax on " シンタックスハイライトon
 
+filetype plugin indent on
