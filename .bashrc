@@ -2,6 +2,8 @@
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 source /usr/local/etc/bash_completion.d/git-completion.bash
 
+PS1='\W $ '
+
 if [ -f ~/.bash_aliases ] ; then
   . ~/.bash_aliases
 fi
