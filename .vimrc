@@ -1,36 +1,31 @@
-"---------------------------
-" 基本設定
-"---------------------------
 set nocompatible
-set encoding=utf-8                  " Vimの内部文字コードをutf-8に設定
-set fileencodings=utf-8,sjis,euc-jp " 読み込み時の文字コード設定
-set number                          " 行番号表示
-set ruler                           " カーソル位置表示
-set tabstop=2                       " ハードタブの幅
-set softtabstop=2                   " ソフトタブの幅
-set shiftwidth=2                    " 自動インデント幅
-set autoindent                      " 改行時インデント継続
-set expandtab                       " タブ文字をスペースに
-set backspace=start,eol,indent      " BSキー設定
-set hlsearch                        " 検索文字のハイライト
-set incsearch                       " インクリメンタルサーチ
-set visualbell                      " ビープ音消去
-set ignorecase                      " 大文字小文字の区別を無視
-set smartcase                       " ignorecaseを大文字の有無で自動適用
-set wildmenu wildmode=list:full     " ファイルをリスト表示
-set noswapfile                      " swapファイルを作成しない
+set encoding=utf-8
+set fileencodings=utf-8,sjis,euc-jp
+set number
+set ruler
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set autoindent
+set expandtab
+set backspace=start,eol,indent
+set hlsearch
+set incsearch
+set visualbell
+set ignorecase
+set smartcase
+set wildmenu wildmode=list:full
+set noswapfile
+set cursorline
 
-" 補完の色
 hi Pmenu ctermbg = cyan
 hi PmenuSel ctermbg = darkcyan
 hi PmenuSbar ctermbg = cyan
 hi PmenuThumb ctermbg = blue
 
-" vimカラースキームの設定
 colorscheme solarized
 set background=dark
 
-" 括弧, クオート補完
 inoremap { {}<ESC>i
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap ( ()<ESC>i
@@ -67,7 +62,6 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 "---------------------------
 " Dein.vim
 "---------------------------
-
 set runtimepath+=~/.vim/dein.vim
 
 call dein#begin(expand('~/.vim/dein/'))
@@ -75,8 +69,6 @@ call dein#begin(expand('~/.vim/dein/'))
 call dein#add('tpope/vim-rails')
 call dein#add('tpope/vim-surround')
 call dein#add('mattn/emmet-vim')
-
-" end 補完
 call dein#add('tpope/vim-endwise')
 
 " Slim syntax highlight
@@ -97,6 +89,6 @@ if dein#check_install()
   call dein#install()
 endif
 
-syntax on " シンタックスハイライトon
+syntax on
 
 filetype plugin indent on
