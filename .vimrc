@@ -60,6 +60,11 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "---------------------------
+" ctrlp
+"---------------------------
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+"---------------------------
 " Dein.vim
 "---------------------------
 
@@ -83,6 +88,8 @@ call dein#add('kchmck/vim-coffee-script')
 call dein#add('scrooloose/nerdtree')
 
 call dein#add('pangloss/vim-javascript')
+
+call dein#add('ctrlpvim/ctrlp.vim')
 
 call dein#end()
 
