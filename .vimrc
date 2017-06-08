@@ -87,7 +87,7 @@ call dein#add('kchmck/vim-coffee-script')
 
 call dein#add('scrooloose/nerdtree')
 
-call dein#add('pangloss/vim-javascript')
+call dein#add('othree/yajs.vim')
 
 call dein#add('ctrlpvim/ctrlp.vim')
 
