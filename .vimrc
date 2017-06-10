@@ -1,4 +1,3 @@
-set nocompatible
 set encoding=utf-8
 set fileencodings=utf-8,sjis,euc-jp
 set number
