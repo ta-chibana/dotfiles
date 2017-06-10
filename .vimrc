@@ -59,6 +59,24 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "---------------------------
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+
+"---------------------------
+" Unite & ag
+"---------------------------
+let g:unite_enable_start_insert = 1
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+
+nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
+
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
+
 "---------------------------
 " Dein.vim
 "---------------------------
@@ -78,12 +96,10 @@ call dein#add('slim-template/vim-slim')
 call dein#add('kchmck/vim-coffee-script')
 
 call dein#add('scrooloose/nerdtree')
-
 call dein#add('othree/yajs.vim')
-
 call dein#add('ctrlpvim/ctrlp.vim')
-
-call dein#end()
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 
 if dein#check_install()
   call dein#install()
