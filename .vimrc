@@ -35,6 +35,8 @@ inoremap ( ()<ESC>i
 inoremap " ""<ESC>i
 inoremap ' ''<ESC>i
 
+runtime macros/matchit.vim
+
 "---------------------------
 " emmet-vim
 "---------------------------
