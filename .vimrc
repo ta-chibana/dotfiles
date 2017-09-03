@@ -97,6 +97,10 @@ call dein#add('slim-template/vim-slim')
 " CoffeeScript syntax highlight
 call dein#add('kchmck/vim-coffee-script')
 
+" preview markdown
+call dein#add('kannokanno/previm')
+call dein#add('tyru/open-browser.vim')
+
 call dein#add('scrooloose/nerdtree')
 call dein#add('othree/yajs.vim')
 call dein#add('ctrlpvim/ctrlp.vim')
