@@ -89,6 +89,7 @@ call dein#add('tpope/vim-rails')
 call dein#add('tpope/vim-surround')
 call dein#add('mattn/emmet-vim')
 call dein#add('tpope/vim-endwise')
+call dein#add('tpope/vim-fugitive')
 
 " Slim syntax highlight
 call dein#add('slim-template/vim-slim')
