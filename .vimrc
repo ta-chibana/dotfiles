@@ -103,6 +103,7 @@ call dein#add('tyru/open-browser.vim')
 
 call dein#add('scrooloose/nerdtree')
 call dein#add('othree/yajs.vim')
+call dein#add('mxw/vim-jsx')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
@@ -110,6 +111,9 @@ call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 if dein#check_install()
   call dein#install()
 endif
+
+autocmd BufRead,BufNewFile *.es6,*.ts setfiletype javascript
+autocmd BufRead,BufNewFile *.jsx,*.tsx setfiletype javascript.jsx
 
 syntax on
 
