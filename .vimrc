@@ -56,26 +56,24 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "---------------------------
-" ctrlp
-"---------------------------
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
-
-"---------------------------
-" Unite & ag
+" Unite
 "---------------------------
 let g:unite_enable_start_insert = 1
 let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
-
 nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
 nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
 
+"---------------------------
+" Ag
+"---------------------------
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
+  let g:ctrlp_use_caching = 0
+  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
 endif
 
 "---------------------------
@@ -104,6 +102,8 @@ call dein#add('tyru/open-browser.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('othree/yajs.vim')
 call dein#add('mxw/vim-jsx')
+
+call dein#add('rking/ag.vim')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
@@ -112,8 +112,11 @@ if dein#check_install()
   call dein#install()
 endif
 
-autocmd BufRead,BufNewFile *.es6,*.ts setfiletype javascript
-autocmd BufRead,BufNewFile *.jsx,*.tsx setfiletype javascript.jsx
+augroup fileTypeIndent
+  autocmd!
+  autocmd BufRead,BufNewFile *.es6,*.ts setfiletype javascript
+  autocmd BufRead,BufNewFile *.jsx,*.tsx setfiletype javascript.jsx
+augroup END
 
 syntax on
 
