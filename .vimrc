@@ -76,6 +76,13 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
 endif
 
+
+"---------------------------
+" Previm
+"---------------------------
+let g:previm_disable_default_css = 1
+let g:previm_custom_css_path = '~/dotfiles/templates/previm/markdown.css'
+
 "---------------------------
 " Dein.vim
 "---------------------------
