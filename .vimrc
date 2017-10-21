@@ -16,6 +16,7 @@ set smartcase
 set wildmenu wildmode=list:full
 set noswapfile
 set cursorline
+set synmaxcol=320
 
 hi Pmenu ctermbg = cyan
 hi PmenuSel ctermbg = darkcyan
@@ -102,6 +103,9 @@ call dein#add('slim-template/vim-slim')
 " CoffeeScript syntax highlight
 call dein#add('kchmck/vim-coffee-script')
 
+" TypeScript syntax highlight
+call dein#add('leafgarland/typescript-vim')
+
 " preview markdown
 call dein#add('kannokanno/previm')
 call dein#add('tyru/open-browser.vim')
@@ -118,12 +122,6 @@ call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 if dein#check_install()
   call dein#install()
 endif
-
-augroup fileTypeIndent
-  autocmd!
-  autocmd BufRead,BufNewFile *.es6,*.ts setfiletype javascript
-  autocmd BufRead,BufNewFile *.jsx,*.tsx setfiletype javascript.jsx
-augroup END
 
 syntax on
 
