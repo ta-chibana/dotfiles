@@ -15,7 +15,6 @@ set ignorecase
 set smartcase
 set wildmenu wildmode=list:full
 set noswapfile
-set cursorline
 set synmaxcol=320
 
 hi Pmenu ctermbg = cyan
