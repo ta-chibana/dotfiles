@@ -117,6 +117,7 @@ call dein#add('rking/ag.vim')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+call dein#add('ConradIrwin/vim-bracketed-paste')
 
 if dein#check_install()
   call dein#install()
