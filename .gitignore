@@ -42,3 +42,4 @@ Session.vim
 tags
 
 .vim/dein
+.vim/init.vim

@@ -17,6 +17,11 @@ set wildmenu wildmode=list:full
 set noswapfile
 set synmaxcol=320
 
+" NOTE: Neovim の日本語入力に不具合がある模様
+" https://hori-ryota.com/blog/neovim-fix-input-broken-ttimeout/
+set ttimeout
+set ttimeoutlen=50
+
 hi Pmenu ctermbg = cyan
 hi PmenuSel ctermbg = darkcyan
 hi PmenuSbar ctermbg = cyan
