@@ -89,6 +89,13 @@ let g:previm_disable_default_css = 1
 let g:previm_custom_css_path = '~/dotfiles/templates/previm/markdown.css'
 
 "---------------------------
+" ALE
+"---------------------------
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_enter = 0
+
+"---------------------------
 " Dein.vim
 "---------------------------
 set runtimepath+=~/.vim/dein.vim
@@ -100,6 +107,7 @@ call dein#add('tpope/vim-surround')
 call dein#add('mattn/emmet-vim')
 call dein#add('tpope/vim-endwise')
 call dein#add('tpope/vim-fugitive')
+call dein#add('w0rp/ale')
 
 " Slim syntax highlight
 call dein#add('slim-template/vim-slim')
