@@ -16,6 +16,7 @@ set smartcase
 set wildmenu wildmode=list:full
 set noswapfile
 set synmaxcol=320
+set hidden
 
 " NOTE: Neovim の日本語入力に不具合がある模様
 " https://hori-ryota.com/blog/neovim-fix-input-broken-ttimeout/
