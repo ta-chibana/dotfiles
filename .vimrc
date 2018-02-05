@@ -50,16 +50,10 @@ let g:user_emmet_leader_key='<c-e>'
 let g:surround_{char2nr('-')} = "<% \r %>"
 let g:surround_{char2nr('=')} = "<%= \r %>"
 let g:user_emmet_settings = {
-    \   'variables': {
-    \     'lang': "ja"
-    \   }
-    \ }
-
-"---------------------------
-" NERDTree
-"---------------------------
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+      \   'variables': {
+      \     'lang': "ja"
+      \   }
+      \ }
 
 "---------------------------
 " Unite
@@ -95,6 +89,9 @@ let g:previm_custom_css_path = '~/dotfiles/templates/previm/markdown.css'
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_enter = 0
+let g:ale_linters = {
+      \ 'javascript': ['eslint']
+      \ }
 
 "---------------------------
 " Dein.vim
