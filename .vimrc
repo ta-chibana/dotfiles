@@ -76,7 +76,6 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
 endif
 
-
 "---------------------------
 " Previm
 "---------------------------
@@ -90,7 +89,8 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_enter = 0
 let g:ale_linters = {
-      \ 'javascript': ['eslint']
+      \ 'javascript': ['eslint'],
+      \ 'typescript': ['tslint']
       \ }
 
 "---------------------------
@@ -116,6 +116,9 @@ call dein#add('kchmck/vim-coffee-script')
 " TypeScript syntax highlight
 call dein#add('leafgarland/typescript-vim')
 
+" for Golang
+call dein#add('fatih/vim-go')
+
 " preview markdown
 call dein#add('kannokanno/previm')
 call dein#add('tyru/open-browser.vim')
@@ -135,5 +138,10 @@ if dein#check_install()
 endif
 
 syntax on
+
+augroup fileTypeIndent
+  autocmd!
+  autocmd BufNewFile,BufRead *.go setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+augroup END
 
 filetype plugin indent on
