@@ -142,6 +142,7 @@ syntax on
 augroup fileTypeIndent
   autocmd!
   autocmd BufNewFile,BufRead *.go setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+  autocmd BufNewFile,BufRead *.md setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 augroup END
 
 filetype plugin indent on
