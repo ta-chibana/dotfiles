@@ -1,31 +1,26 @@
 #!/bin/sh
 
-DOT_FILES=(.zprofile .zshrc .zsh_aliases .vimrc)
-DOT_VIM=.vim
+SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 
-for file in ${DOT_FILES[@]}; do
-  ln -s $HOME/dotfiles/$file $HOME/$file && echo "Succeeded to create ${file}"
-done
+# Helper: create symlink with backup of existing file
+create_link() {
+  src=$1
+  dest=$2
 
-if [ ! -e $HOME/.vim ]; then
-  ln -s $HOME/dotfiles/$DOT_VIM/ $HOME/$DOT_VIM && echo "Succeeded to create ${DOT_VIM}"
-else
-  echo "$HOME/${DOT_VIM} is exists"
-fi
+  if [ -L "$dest" ]; then
+    echo "Removing existing symlink: $dest"
+    rm "$dest"
+  elif [ -e "$dest" ]; then
+    echo "Backing up existing file: $dest -> ${dest}.bak"
+    mv "$dest" "${dest}.bak"
+  fi
 
-if [ ! -e $HOME/.config/nvim ]; then
-  ln -s $HOME/dotfiles/.vim $HOME/.config/nvim
-  echo "Succeeded to create $HOME/.config/nvim"
-else
-  echo "$HOME/.config/nvim is exists"
-fi
+  ln -s "$src" "$dest" && echo "Created: $dest -> $src"
+}
 
-if [ ! -e $HOME/.config/nvim/init.vim ]; then
-  ln -s $HOME/dotfiles/.vimrc $HOME/.config/nvim/init.vim
-  echo "Succeeded to create $HOME/.config/nvim/init.vim"
-else
-  echo "$HOME/.config/nvim/init.vim is exists"
-fi
+# zshrc
+create_link "$SCRIPT_DIR/.zshrc" "$HOME/.zshrc"
 
-git submodule init
-git submodule update
+# nvim
+mkdir -p "$HOME/.config/nvim"
+create_link "$SCRIPT_DIR/config/nvim/init.vim" "$HOME/.config/nvim/init.vim"
