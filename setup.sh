@@ -21,6 +21,9 @@ create_link() {
 # zshrc
 create_link "$SCRIPT_DIR/.zshrc" "$HOME/.zshrc"
 
+# zshenv
+create_link "$SCRIPT_DIR/.zshenv" "$HOME/.zshenv"
+
 # nvim
 mkdir -p "$HOME/.config/nvim"
 create_link "$SCRIPT_DIR/config/nvim/init.vim" "$HOME/.config/nvim/init.vim"
