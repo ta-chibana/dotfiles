@@ -17,6 +17,7 @@ set wildmenu wildmode=list:full
 set noswapfile
 set synmaxcol=320
 set hidden
+set clipboard=unnamed " yank した文字列をクリップボードにコピー
 
 set ttimeout
 set ttimeoutlen=50
