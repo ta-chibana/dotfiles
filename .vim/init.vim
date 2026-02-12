@@ -1,1 +1,0 @@
-/Users/chibana/dotfiles/.vimrc
