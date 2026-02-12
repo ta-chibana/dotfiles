@@ -1,10 +1,20 @@
-source /usr/local/etc/bash_completion.d/git-prompt.sh
+export PATH=/opt/homebrew/bin:$PATH
 
-PROMPT='%c $ '
+# nodenv
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
 
-if [ -f ~/.zsh_aliases ] ; then
-  . ~/.zsh_aliases
-fi
+# rbenv
+eval "$(rbenv init -)"
+
+# cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+
+export PATH="$HOME/.local/bin:$PATH"
+
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+complete -C '/opt/homebrew/bin/aws_completer' aws
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -12,6 +22,12 @@ SAVEHIST=10000
 setopt hist_ignore_dups
 setopt share_history
 
+# Aliases
+alias ls="ls -GF"
+alias ll="ls -l"
+alias la="ls -A"
+
+# Search history
 function peco-history-selection() {
     BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
     CURSOR=$#BUFFER
@@ -20,13 +36,3 @@ function peco-history-selection() {
 
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then
-    source "$HOME/google-cloud-sdk/path.zsh.inc";
-fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then
-  source "$HOME/google-cloud-sdk/completion.zsh.inc";
-fi
